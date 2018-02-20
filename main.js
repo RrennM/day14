@@ -1,25 +1,29 @@
-// Define variables for boxes
-var boxes = document.getElementsByClassName("box");
-console.log(boxes.length);
-
 var randoColor;
 
-// recognize when a box is clicked
+// Define variables for boxes
+var boxes = document.getElementsByClassName("box");
+
+// loop through boxes
 for (var i = 0; i < boxes.length; i++) {
-// add color to each box individually
+	// assign each box an ID
+	boxes[i].id = "box" + i.toString();
+
+	// add color to each box individually
 	randoColor = 	'rgb(' + 
 									(Math.floor(Math.random() * 256)) + ',' +
 									(Math.floor(Math.random() * 256)) + ',' +
 									(Math.floor(Math.random() * 256)) + ')'
 
-	console.log("Hello!")
 	console.log(i)
+	console.log(boxes[i])
 	console.log(randoColor);
 
 	boxes[i].style.backgroundColor = randoColor;
 
-	boxes[i].addEventListener("click", function() {
-		console.log("Box No. " + i)
+	box = document.getElementById("box" + i.toString())
+	box.addEventListener("click", function() {
+		this.style.backgroundColor = 'red';
+		// console.log(i)
+		console.log(this.id)
 	})
 }
-
