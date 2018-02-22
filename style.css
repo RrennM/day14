@@ -42,6 +42,25 @@ main {
 	height: auto;
 }
 
+.btn {
+	width: 80px;
+	margin: 0 5px 20px;
+}
+
+.col-twenty, .col-sixty {
+	display: inline-block;
+}
+
+.hideRow {
+	visibility: hidden;
+}
+
+.showRow {
+	visibility: visible;
+}
+
+
+
 
 /*GAME STYLES*/
 main .container {
@@ -49,13 +68,57 @@ main .container {
 	margin: 0 auto;
 }
 
+main .container .row {
+	width: 40%;
+	margin: 0 auto;
+}
+
 .box {
-	width: 200px;
-	margin: 20px 1.25%;
+	width: 30%;
+	margin: 5px 1.25%;
 	background-color: darkseagreen;
-	padding-bottom: 200px;
+	padding-bottom: 30%;
 	display: inline-block;
 	-webkit-border-radius: 25px;
 	-moz-border-radius: 25px;
 	border-radius: 25px;
 }
+
+/*Fade Out Styles*/
+.animated {
+    -webkit-animation-duration: 1s;animation-duration: 1s;
+    -webkit-animation-fill-mode: both;animation-fill-mode: both;
+ }
+ 
+ @-webkit-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+ 
+ @keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+ 
+ .fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+ }
+/*Fade Out Styles*/
+
+/*Fade In Styles*/
+ @-webkit-keyframes fadeIn {
+    100% {opacity: 1;}
+    0% {opacity: 0;}
+ }
+ 
+ @keyframes fadeIn {
+    100% {opacity: 1;}
+    0% {opacity: 0;}
+ }
+ 
+ .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+ }
+/*Fade In Styles*/

@@ -4,7 +4,7 @@
 	<title>Color Picker Game</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body  onload="javascript:loadGame()">
 
 	<header>
 		<div class="container">
@@ -16,18 +16,33 @@
 
 	<main>
 		<h3>Think you know of which color I'm thinking? Pick one.</h3>
-		<div class="container">
+		<div class="container twenty">
+			<div class="row">
+				<input class="btn" id="difBtn" type="button" name="difficulty" value="Difficulty">
+				<input class="btn" id="resBtn" type="button" name="reset" value="Reset">
+				<input class="btn" id="hintBtn" type="button" name="reset" value="Hint">
+			</div> <!-- .row -->		
+		</div> <!-- .container -->
+		<div class="container sixty">
 			<div class="row">
 				<div class="box"></div>
 				<div class="box"></div>
 				<div class="box"></div>
 			</div> <!-- .row -->
-			<div class="row">
+			<div class="row" id="medDif">
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+			</div> <!-- .row -->
+			<div class="row" id="harDif">
 				<div class="box"></div>
 				<div class="box"></div>
 				<div class="box"></div>
 			</div> <!-- .row -->
 		</div> <!-- .container -->
+		<div class="container twenty">
+			
+		</div>
 	</main>
 
 	<script src="main.js"></script>
