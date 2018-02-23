@@ -2,7 +2,6 @@
 var randoColor;
 // Define variables for boxes
 var boxes = document.getElementsByClassName("box");
-var shownBoxes = boxes.classList.contains("showRow")
 // Define variable for difficulty;
 var currentDif = "hard";
 // Define variables difficulty rows
@@ -12,8 +11,6 @@ var harDifRow = document.getElementById("harDif");
 
 // Function for loading the game
 var loadGame = function() {
-	boxes = document.getElementsByClassName("box");
-	console.log(boxes.length)
 	for (var i = 0; i < boxes.length; i++) {
 		if (boxes[i].classList.contains("fadeIn")) {
 			boxes[i].classList.remove('fadeIn');
@@ -35,21 +32,21 @@ var loadGame = function() {
 							(Math.floor(Math.random() * 256)) + ',' +
 							(Math.floor(Math.random() * 256)) + ')';
 
-		// console.log(i)
-		// console.log(boxes[i])
-		// console.log(randoColor);
-
 		// Assign each of the boxes a random color
 		boxes[i].style.backgroundColor = randoColor;
 
 		// Select the color of one random box to be the winning color
-		theColor = boxes[(Math.floor(Math.random() * 5))].style.backgroundColor;
+		// based on current difficulty
+		if (currentDif == "hard") {
+			theColor = boxes[(Math.floor(Math.random() * 8))].style.backgroundColor;
+		} else if (currentDif == "medium") {
+			theColor = boxes[(Math.floor(Math.random() * 5))].style.backgroundColor;
+		} else if (currentDif == "easy") {
+			theColor = boxes[(Math.floor(Math.random() * 2))].style.backgroundColor;
+		}
 
 		box = document.getElementById("box" + i.toString());
 		box.addEventListener("click", function() {
-			// console.log(this.style.backgroundColor)
-			// console.log(i)
-			// console.log(this.id)
 
 			// Check to see if color matches winning color
 			if (this.style.backgroundColor == theColor) {
@@ -82,7 +79,7 @@ var loadGame = function() {
 // Reset button behavior
 var resetBtn = document.getElementById("resBtn");
 resetBtn.addEventListener("click", function(){
-
+	// Just Reload the whole game
 	loadGame();
 });
 
@@ -111,6 +108,5 @@ difBtn.addEventListener("click", function() {
 	loadGame();
 })
 
-// Working on counting only the visible elements when changing difficulties
-// thought about something like adding hidden visibility to each box when changing difficulties
+
 
