@@ -1,16 +1,25 @@
 // Define variable for random color
 var randoColor;
 // Define variables for boxes
-var boxes = document.getElementsByClassName("box");
+var boxes 				= document.getElementsByClassName("box");
 // Define variable for difficulty;
-var currentDif = "hard";
+var currentDif 		= "hard";
 // Define variables difficulty rows
-var medDifRow = document.getElementById("medDif");
-var harDifRow = document.getElementById("harDif");
+var medDifRow 		= document.getElementById("medDif");
+var harDifRow 		= document.getElementById("harDif");
+// Define variables for the headers
+var titleHeader 	= document.getElementById("title");
+var commentary 		= document.getElementById("commentary");
+// Define an array of comments for incorrect selection
+var incComments = ["Nope!", "Not that one...", "That's not right.", "Sorry. Keep trying."]
 
 
 // Function for loading the game
 var loadGame = function() {
+	// reset the headers
+	titleHeader.innerHTML = "Color Picker Game";
+	commentary.innerHTML = "Think you know of which color I'm thinking? Pick one.";
+
 	for (var i = 0; i < boxes.length; i++) {
 		if (boxes[i].classList.contains("fadeIn")) {
 			boxes[i].classList.remove('fadeIn');
@@ -50,8 +59,8 @@ var loadGame = function() {
 
 			// Check to see if color matches winning color
 			if (this.style.backgroundColor == theColor) {
-				console.log("Correct!");
-				console.log(theColor);
+				// Change commentary header when correctly chosen
+				commentary.innerHTML = "Correct!";
 
 				// loop through boxes
 				for (var i = 0; i < boxes.length; i++) {
@@ -63,7 +72,8 @@ var loadGame = function() {
 					boxes[i].classList.add("fadeIn");
 				}
 			} else { // If color does not match winning color
-				console.log("Nope!");
+				// Change commentary header when incorrectly chosen
+				commentary.innerHTML = incComments[Math.floor(Math.random() * incComments.length)];
 
 				// Add fadeOut class effect
 				this.classList.remove('fadeIn');
@@ -90,23 +100,22 @@ difBtn.addEventListener("click", function() {
 		currentDif = "medium";
 		harDifRow.classList.remove("showRow");
 		harDifRow.classList.add("hideRow");
-		console.log(currentDif);
 	} else if (currentDif == "medium") {
 		currentDif = "easy";
 		medDifRow.classList.remove("showRow");
 		medDifRow.classList.add("hideRow");
-		console.log(currentDif);
 	} else if (currentDif == "easy") {
 		currentDif = "hard"
-		console.log(currentDif);
 		medDifRow.classList.remove("showRow");
 		harDifRow.classList.remove("showRow");
 		medDifRow.classList.add("showRow");
 		harDifRow.classList.add("showRow");
 	}
-	console.log("Change Dif");
 	loadGame();
 })
 
-
-
+// Hint button functionality
+var hintBtn = document.getElementById("hintBtn");
+hintBtn.addEventListener("click", function() {
+	titleHeader.innerHTML = theColor.toString();
+})

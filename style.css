@@ -1,4 +1,5 @@
-/*GLOBAL STYLES*/
+/*=== GLOBAL STYLES
+  ==============================*/
 
 html {
 	font-size: 16px;
@@ -62,7 +63,8 @@ main {
 
 
 
-/*GAME STYLES*/
+/*=== GAME STYLES
+  ===================================*/
 main .container {
 	width: 90%;
 	margin: 0 auto;
@@ -122,3 +124,26 @@ main .container .row {
     animation-name: fadeIn;
  }
 /*Fade In Styles*/
+
+
+/*=== MEDIA QUERIES
+=============================================================*/
+/*=== SMALL DESKTOPS
+=============================================================*/
+@media screen and ( max-width: 991px ) {
+	main .container .row {
+		width: 60%;
+	}
+}
+
+/*=== MOBILE
+=============================================================*/
+@media screen and ( max-width: 768px ) {
+	h3 {
+		font-size: 2.2em;
+	}
+
+	main .container .row {
+		width: 90%;
+	}
+}
